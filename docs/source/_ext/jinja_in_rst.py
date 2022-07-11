@@ -11,8 +11,9 @@ def rstjinja(app, docname, source):
     if app.builder.format != "html":
         return
     src = source[0]
+    model = capellambse.MelodyModel("mdd-model/mdd.aird")
     rendered = app.builder.templates.render_string(
-        src, app.config.html_context
+        src, {"model":model}
     )
     source[0] = rendered
 

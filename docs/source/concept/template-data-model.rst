@@ -1,4 +1,6 @@
 Template Data Model
 ===================
 
-pass
+.. diagram:: [CDB] Template Ontology
+
+{{ model.la.all_functions }}
