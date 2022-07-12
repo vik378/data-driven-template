@@ -2,7 +2,8 @@
 
 <!--Capella_Version_5.2.0-->
 <org.polarsys.capella.core.data.capellamodeller:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:libraries="http://www.polarsys.org/capella/common/libraries/5.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CapellaRequirements="http://www.polarsys.org/capella/requirements"
+    xmlns:Requirements="http://www.polarsys.org/kitalpha/requirements" xmlns:libraries="http://www.polarsys.org/capella/common/libraries/5.0.0"
     xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/5.0.0"
     xmlns:org.polarsys.capella.core.data.capellacore="http://www.polarsys.org/capella/core/core/5.0.0"
     xmlns:org.polarsys.capella.core.data.capellamodeller="http://www.polarsys.org/capella/core/modeller/5.0.0"
@@ -58,6 +59,58 @@
     </ownedArchitectures>
     <ownedArchitectures xsi:type="org.polarsys.capella.core.data.ctx:SystemAnalysis"
         id="bd978f48-13ca-429e-a9e2-9f5d579ccc48" name="System Analysis">
+      <ownedExtensions xsi:type="CapellaRequirements:CapellaModule" id="22525c94-d2ca-4d17-91fb-49f7ff14745d"
+          ReqIFLongName="Requirements">
+        <ownedRequirements xsi:type="Requirements:Folder" id="934171a8-bcd4-4929-aa6c-1940927d4a7f"
+            ReqIFLongName="Requirements for Template">
+          <ownedRequirements xsi:type="Requirements:Requirement" id="1c132544-959d-49ab-af6d-a3651c7c8a1a"
+              ReqIFLongName="persistance in open format" requirementType="#ba4caac7-1ecc-4908-8a72-8fe647853198"
+              ReqIFText="&lt;p>The form in which a Template is stored or transfered shall be open, so that no proprietary tooling is required to create, read or modify a Template instance.&lt;/p>&#xA;">
+            <ownedAttributes xsi:type="Requirements:IntegerValueAttribute" id="ada856ee-2a51-409c-9c17-ccad3d4e39a0"
+                definition="#fc1dc014-010b-4d6d-b750-4f63a5141b76" value="1"/>
+            <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="04fecba0-5695-4093-a3b9-6b68278e206a"
+                definition="#8b6c71b0-2508-4778-b1b9-d9d6c246717d" value="So that other compatible templating tools could be made and no data gets locked."/>
+          </ownedRequirements>
+          <ownedRequirements xsi:type="Requirements:Requirement" id="b565ca3b-e857-4a28-bb52-1c87ca2db5d2"
+              ReqIFLongName="change control" requirementType="#ba4caac7-1ecc-4908-8a72-8fe647853198">
+            <ownedAttributes xsi:type="Requirements:IntegerValueAttribute" id="18ca198b-762b-427d-a714-2ba2b974eb97"
+                definition="#fc1dc014-010b-4d6d-b750-4f63a5141b76" value="1"/>
+          </ownedRequirements>
+          <ownedRequirements xsi:type="Requirements:Requirement" id="2a9a9d10-ab72-4ca5-9ef8-68cb514988b5"
+              ReqIFLongName="fault isolation" requirementType="#ba4caac7-1ecc-4908-8a72-8fe647853198">
+            <ownedAttributes xsi:type="Requirements:IntegerValueAttribute" id="47883194-442b-4339-b436-4300655e8a8c"
+                definition="#fc1dc014-010b-4d6d-b750-4f63a5141b76" value="1"/>
+          </ownedRequirements>
+          <ownedRequirements xsi:type="Requirements:Requirement" id="33ad16f2-02aa-4de2-a790-e1c318785f3d"
+              ReqIFLongName="reuse of constructs" requirementType="#ba4caac7-1ecc-4908-8a72-8fe647853198">
+            <ownedAttributes xsi:type="Requirements:IntegerValueAttribute" id="b467144a-9735-4fc5-ae56-fc586823937f"
+                definition="#fc1dc014-010b-4d6d-b750-4f63a5141b76" value="1"/>
+          </ownedRequirements>
+          <ownedRequirements xsi:type="Requirements:Requirement" id="36d332e5-ebdd-4837-a4aa-aeacc3c15ee0"
+              ReqIFLongName="referencing of rendered elements to rendering template construct"/>
+          <ownedRequirements xsi:type="Requirements:Requirement" id="0b0ce5ab-7241-4414-995e-51f984f822cb"
+              ReqIFLongName="identification of rendered elements"/>
+        </ownedRequirements>
+        <ownedExtensions xsi:type="CapellaRequirements:CapellaTypesFolder" id="cdda6ba0-3508-4b6a-b065-37a19d6fe534"
+            ReqIFLongName="Req.Types">
+          <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="d7c6059c-4cfa-4483-998b-4031122c3fa3"
+              ReqIFLongName="String"/>
+          <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="5a35790c-c9be-4f26-af9b-618d1f861020"
+              ReqIFLongName="Integer"/>
+          <ownedTypes xsi:type="Requirements:RequirementType" id="ba4caac7-1ecc-4908-8a72-8fe647853198"
+              ReqIFLongName="Stakeholder Requirement">
+            <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="8b6c71b0-2508-4778-b1b9-d9d6c246717d"
+                ReqIFLongName="Rationale" definitionType="#d7c6059c-4cfa-4483-998b-4031122c3fa3"/>
+            <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="fc1dc014-010b-4d6d-b750-4f63a5141b76"
+                ReqIFLongName="Version" definitionType="#5a35790c-c9be-4f26-af9b-618d1f861020"/>
+          </ownedTypes>
+        </ownedExtensions>
+        <ownedExtensions xsi:type="CapellaRequirements:CapellaTypesFolder" id="2ef983f1-7035-4c3b-8fd3-3965891277b9"
+            ReqIFLongName="LinkTypes">
+          <ownedTypes xsi:type="Requirements:RelationType" id="7c642b54-ea86-483a-946e-5c71e89ee44e"
+              ReqIFLongName="allocatedTo"/>
+        </ownedExtensions>
+      </ownedExtensions>
       <ownedFunctionPkg xsi:type="org.polarsys.capella.core.data.ctx:SystemFunctionPkg"
           id="6f818417-3ddc-4163-8b56-f0022f5bbd48" name="System Functions">
         <ownedSystemFunctions xsi:type="org.polarsys.capella.core.data.ctx:SystemFunction"
@@ -506,7 +559,7 @@
           <ownedClasses xsi:type="org.polarsys.capella.core.data.information:Class"
               id="941f009b-280f-4b03-9685-fd8bcf47a576" name="Template">
             <ownedFeatures xsi:type="org.polarsys.capella.core.data.information:Property"
-                id="7eb007a7-2211-42aa-84a9-16fb41e89f68" name="own_fragments" abstractType="#51aac8e6-126a-44b3-ae44-189e9e561024"
+                id="7eb007a7-2211-42aa-84a9-16fb41e89f68" name="contents" abstractType="#51aac8e6-126a-44b3-ae44-189e9e561024"
                 ordered="true" aggregationKind="COMPOSITION">
               <ownedMinCard xsi:type="org.polarsys.capella.core.data.information.datavalue:LiteralNumericValue"
                   id="a14a2006-69dd-460a-9226-ef467e8930af" name="" value="0"/>
