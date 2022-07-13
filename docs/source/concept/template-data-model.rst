@@ -7,6 +7,8 @@ Intro
 
 This page defines requirements for Template as a data object and then also outlines a possible solution to meet those.
 
+This is a model-enchanced document. Changes to the documentation model `docs/mdd-model` have effect on the contents of this page.
+
 Requirements
 ============
 
@@ -19,28 +21,25 @@ Here is a summary of stakeholder needs towards the Template data object that we 
     {% set req_mod = model.by_uuid("934171a8-bcd4-4929-aa6c-1940927d4a7f") %}
     {% for req in req_mod.requirements %}
     <tr>
-      <td> {{req.identifier}} </td>
+      <td> {{req.identifier}}/{{req.attributes["Version"]}} </td>
       <td> {{req.text}} </td>
       <td> {{req.attributes["Rationale"]}} </td>
     </tr>
     {% endfor %}
     </table>
 
-The template shall 
 
-Lets first have a look at the challenge itslelf: to deliver best-in-class templating experience for engineering deliverables we need 
-Template Data Model is the key concept within the mdd-template-factory.
-
-Template as a data object has the following requirements:
-
-- easy to exchange
-- easy to control changes
-- easy to debug
-- extendable / allow for reuse of constructs
-- support various ways to formalize and track changes in an expression
-
+Conceptual ontology of a Template
+=================================
 
 .. diagram:: [CDB] Template Ontology
+
+
+The figure above provides an overview of the Template ontology (conceptual). The final technical implementation may differ.
+
+
+Classes
+=======
 
 {% macro describe_attribute(attr, pkg) %}
 {%     set prefix = "- " + attr.name + ":" %}
@@ -61,9 +60,6 @@ Template as a data object has the following requirements:
 {% endif %}
 {% endmacro %}
 
-Classes
-=======
-
 {% set pkg = model.by_uuid("eaaa9fe1-0b44-4f47-8bae-2301fe22afec") %}
 {% for cls in pkg.classes %}
 {% set title = ("Abstract " if cls.is_abstract else "") + "**" + cls.name + "** " %}
@@ -79,9 +75,5 @@ Attributes of {{ cls.name }}
 {% for attr in cls.properties %}
 {{ describe_attribute(attr, pkg) }}
 {% endfor %}
-
-Class dump
-^^^^^^^^^^
-{{ cls }}
 
 {% endfor %}

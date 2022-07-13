@@ -64,7 +64,7 @@
         <ownedRequirements xsi:type="Requirements:Folder" id="934171a8-bcd4-4929-aa6c-1940927d4a7f"
             ReqIFLongName="Requirements for Template">
           <ownedRequirements xsi:type="Requirements:Requirement" id="1c132544-959d-49ab-af6d-a3651c7c8a1a"
-              ReqIFLongName="persistance in open format" requirementType="#ba4caac7-1ecc-4908-8a72-8fe647853198"
+              ReqIFIdentifier="R001" ReqIFLongName="persistance in open format" requirementType="#ba4caac7-1ecc-4908-8a72-8fe647853198"
               ReqIFText="&lt;p>The form in which a Template is stored or transfered shall be open, so that no proprietary tooling is required to create, read or modify a Template instance.&lt;/p>&#xA;">
             <ownedAttributes xsi:type="Requirements:IntegerValueAttribute" id="ada856ee-2a51-409c-9c17-ccad3d4e39a0"
                 definition="#fc1dc014-010b-4d6d-b750-4f63a5141b76" value="1"/>
@@ -72,24 +72,45 @@
                 definition="#8b6c71b0-2508-4778-b1b9-d9d6c246717d" value="So that other compatible templating tools could be made and no data gets locked."/>
           </ownedRequirements>
           <ownedRequirements xsi:type="Requirements:Requirement" id="b565ca3b-e857-4a28-bb52-1c87ca2db5d2"
-              ReqIFLongName="change control" requirementType="#ba4caac7-1ecc-4908-8a72-8fe647853198">
+              ReqIFIdentifier="R002" ReqIFLongName="change control" requirementType="#ba4caac7-1ecc-4908-8a72-8fe647853198"
+              ReqIFText="&lt;p>The Template provide means for unique identification of its constructs across baselines (unique object identifier and version).&lt;/p>&#xA;">
             <ownedAttributes xsi:type="Requirements:IntegerValueAttribute" id="18ca198b-762b-427d-a714-2ba2b974eb97"
                 definition="#fc1dc014-010b-4d6d-b750-4f63a5141b76" value="1"/>
+            <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="92fb6620-3111-490d-b7fc-8e09c0c33437"
+                definition="#8b6c71b0-2508-4778-b1b9-d9d6c246717d" value="This improves user experience in an environment where templates are part of change controled assets. Ability to isolate a diffect in documentation to a specific template fragment / version"/>
           </ownedRequirements>
           <ownedRequirements xsi:type="Requirements:Requirement" id="2a9a9d10-ab72-4ca5-9ef8-68cb514988b5"
-              ReqIFLongName="fault isolation" requirementType="#ba4caac7-1ecc-4908-8a72-8fe647853198">
+              ReqIFIdentifier="R003" ReqIFLongName="fault isolation" requirementType="#ba4caac7-1ecc-4908-8a72-8fe647853198"
+              ReqIFText="&lt;p>The Template data structure shall enable fault isolation to one of the basic templating constructs - rendering block, condition, query (data transformation) or loop&lt;/p>&#xA;">
             <ownedAttributes xsi:type="Requirements:IntegerValueAttribute" id="47883194-442b-4339-b436-4300655e8a8c"
                 definition="#fc1dc014-010b-4d6d-b750-4f63a5141b76" value="1"/>
+            <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="e970b0c5-caa6-4b6c-8039-df7f0f067cdd"
+                definition="#8b6c71b0-2508-4778-b1b9-d9d6c246717d" value="This will improve user experience related to template debugging and maintenance. With a monolythic template it frequently gets difficult to find a root cause of things going wrong. Having template broken down into basic isolated building blocks will enable more precise fault isolation as well as independent and maybe even asynchronous / real-time fragment validation and preview."/>
           </ownedRequirements>
           <ownedRequirements xsi:type="Requirements:Requirement" id="33ad16f2-02aa-4de2-a790-e1c318785f3d"
-              ReqIFLongName="reuse of constructs" requirementType="#ba4caac7-1ecc-4908-8a72-8fe647853198">
+              ReqIFIdentifier="R004" ReqIFLongName="reuse of constructs" requirementType="#ba4caac7-1ecc-4908-8a72-8fe647853198"
+              ReqIFText="&lt;p>The Template ontology shall provide means for re-use through instantiation of template fragments.&lt;/p>&#xA;">
             <ownedAttributes xsi:type="Requirements:IntegerValueAttribute" id="b467144a-9735-4fc5-ae56-fc586823937f"
                 definition="#fc1dc014-010b-4d6d-b750-4f63a5141b76" value="1"/>
+            <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="9da5d6a5-4daf-438c-8f9e-889633e72d0a"
+                definition="#8b6c71b0-2508-4778-b1b9-d9d6c246717d" value="In templating we frequently make use of visualization patterns and it should be possible for an end-user to define and re-use those."/>
           </ownedRequirements>
           <ownedRequirements xsi:type="Requirements:Requirement" id="36d332e5-ebdd-4837-a4aa-aeacc3c15ee0"
-              ReqIFLongName="referencing of rendered elements to rendering template construct"/>
+              ReqIFIdentifier="R005" ReqIFLongName="referencing of rendered elements to rendering template construct"
+              requirementType="#ba4caac7-1ecc-4908-8a72-8fe647853198" ReqIFText="&lt;p>The Template ontology shall enable reverse mapping of generated objects to the template fragments.&lt;/p>&#xA;">
+            <ownedAttributes xsi:type="Requirements:IntegerValueAttribute" id="f2370629-0dc9-4f91-9f84-c601a21fdda4"
+                definition="#fc1dc014-010b-4d6d-b750-4f63a5141b76" value="1"/>
+            <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="4e304f79-b780-4379-8bc6-9dcf8e0cb418"
+                definition="#8b6c71b0-2508-4778-b1b9-d9d6c246717d" value="To debug content we need to know which template fragment resulted in what content."/>
+          </ownedRequirements>
           <ownedRequirements xsi:type="Requirements:Requirement" id="0b0ce5ab-7241-4414-995e-51f984f822cb"
-              ReqIFLongName="identification of rendered elements"/>
+              ReqIFIdentifier="R006" ReqIFLongName="identification of rendered elements"
+              requirementType="#ba4caac7-1ecc-4908-8a72-8fe647853198" ReqIFText="&lt;p>The Template shall provide means to specify how the generated elements should be uniquely identified and versioned.&lt;/p>&#xA;">
+            <ownedAttributes xsi:type="Requirements:IntegerValueAttribute" id="bd485e75-a1c2-4d2b-9be4-24380ed5fb34"
+                definition="#fc1dc014-010b-4d6d-b750-4f63a5141b76" value="1"/>
+            <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="dbde4f01-8457-454e-857c-e3a48ccf4d0a"
+                definition="#8b6c71b0-2508-4778-b1b9-d9d6c246717d" value="To enable formal change control of the derived documents."/>
+          </ownedRequirements>
         </ownedRequirements>
         <ownedExtensions xsi:type="CapellaRequirements:CapellaTypesFolder" id="cdda6ba0-3508-4b6a-b065-37a19d6fe534"
             ReqIFLongName="Req.Types">
