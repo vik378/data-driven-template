@@ -478,7 +478,7 @@
             </ownedMembers>
           </ownedAssociations>
           <ownedClasses xsi:type="org.polarsys.capella.core.data.information:Class"
-              id="07c9fd61-44b7-445e-9446-ddeffbc2e9ad" name="RichText">
+              id="07c9fd61-44b7-445e-9446-ddeffbc2e9ad" name="RichText" description="&lt;p>This is a&amp;nbsp;&lt;a href=&quot;hlink://51aac8e6-126a-44b3-ae44-189e9e561024&quot;>Fragment&lt;/a>&amp;nbsp;specialization with focus on text capture. The expected realization will allow for use of any jinja payload so this also may be used to deliver any HTML output.&lt;/p>&#xA;">
             <ownedGeneralizations xsi:type="org.polarsys.capella.core.data.capellacore:Generalization"
                 id="3d30196b-d7d6-4e1d-a152-1565d0e71648" super="#51aac8e6-126a-44b3-ae44-189e9e561024"
                 sub="#07c9fd61-44b7-445e-9446-ddeffbc2e9ad"/>
@@ -491,13 +491,13 @@
             </ownedFeatures>
           </ownedClasses>
           <ownedClasses xsi:type="org.polarsys.capella.core.data.information:Class"
-              id="f1eab694-23b7-463b-95ae-029f43b14316" name="Table">
+              id="f1eab694-23b7-463b-95ae-029f43b14316" name="Table" description="&lt;p>This fragment type specialization is table capture. Technically this should be another jinja block, however on the front-end side this may be realized by a more complex text editor.&lt;/p>&#xA;">
             <ownedGeneralizations xsi:type="org.polarsys.capella.core.data.capellacore:Generalization"
                 id="77864359-909c-4d2b-b521-4e5555fd2a43" super="#51aac8e6-126a-44b3-ae44-189e9e561024"
                 sub="#f1eab694-23b7-463b-95ae-029f43b14316"/>
           </ownedClasses>
           <ownedClasses xsi:type="org.polarsys.capella.core.data.information:Class"
-              id="45b42a1a-89e1-4ebe-abbf-de92b0083737" name="Figure">
+              id="45b42a1a-89e1-4ebe-abbf-de92b0083737" name="Figure" description="&lt;p>This fragment type is focused on delivering figures, be it model-derived, static asset or synthetic&lt;/p>&#xA;">
             <ownedGeneralizations xsi:type="org.polarsys.capella.core.data.capellacore:Generalization"
                 id="addd89dd-2dd2-4523-b2ec-59bd53ee4a3c" super="#51aac8e6-126a-44b3-ae44-189e9e561024"
                 sub="#45b42a1a-89e1-4ebe-abbf-de92b0083737"/>
@@ -639,7 +639,8 @@
           <ownedClasses xsi:type="org.polarsys.capella.core.data.information:Class"
               id="ef405a45-1f20-4b3d-a819-b59f61e1be42" name="Parameter"/>
           <ownedClasses xsi:type="org.polarsys.capella.core.data.information:Class"
-              id="51aac8e6-126a-44b3-ae44-189e9e561024" name="Fragment" abstract="true">
+              id="51aac8e6-126a-44b3-ae44-189e9e561024" name="Fragment" description="&lt;p>Fragment is the lowest building block of a&amp;nbsp;&lt;a href=&quot;hlink://941f009b-280f-4b03-9685-fd8bcf47a576&quot;>Template&lt;/a>. Any fragment can be independently compiled / validated given the context.&amp;nbsp;&lt;/p>&#xA;"
+              abstract="true">
             <ownedGeneralizations xsi:type="org.polarsys.capella.core.data.capellacore:Generalization"
                 id="e68342d0-2027-4ac4-a8d5-9fd4b23102b6" super="#12b0c56d-03b9-49c5-bc6c-64a2555b6b20"
                 sub="#51aac8e6-126a-44b3-ae44-189e9e561024"/>

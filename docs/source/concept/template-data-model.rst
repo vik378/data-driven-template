@@ -67,7 +67,9 @@ Classes
 {{ title }}{% if cls.super %}({{ cls.super.name }}){% endif %}
 -------------------------------------------------------------------------------------------------------------------------------------
 
-{% if cls.description %}{{ cls.description }}{% else %}No description available{% endif %}
+.. raw:: html
+
+    {% if cls.description %}{{ cls.description }}{% else %}No description available{% endif %}
 
 Attributes of {{ cls.name }}
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
