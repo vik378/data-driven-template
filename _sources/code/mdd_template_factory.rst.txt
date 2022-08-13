@@ -1,0 +1,10 @@
+mdd\_template\_factory package
+==============================
+
+Module contents
+---------------
+
+.. automodule:: mdd_template_factory
+   :members:
+   :undoc-members:
+   :show-inheritance:
