@@ -1,0 +1,48 @@
+data_sources:
+  - data: 
+    - type: yml-loader
+      path: wp1.2.yml
+  - images:
+    - type: image-folder
+      path: ./images
+  - invoices:
+    - type: image-folder
+      path: ./invoices
+contents:
+  - type: heading
+    level: 1
+    text: Introduction
+    contents:
+    - type: paragraph
+      text: This report covers activities planning and execution for work-package {{ data.work_package_id }}.
+      requires: ["data"]
+  - type: heading
+    level: 1
+    text: Required Materials
+    contents:
+    - type: basic-data-table
+      columns: ["Item", "Cost", "Quantity", "Total"]
+      row_query: data.items
+      requires: ["data"]
+      cells:
+        - "{{ row.item }}"
+        - "{{ row.cost }}"
+        - "{{ row.quantity }}"
+        - "{{ row.quantity * row.cost }}"
+    - type: data-query
+      defines: TOTAL_MATERIAL_COST
+      expression: 
+        sum([item.quantity * item.cost for item in data.items])
+      visibility: global
+    - type: paragraph
+      text: "Total material costs: __{{ TOTAL_MATERIAL_COST }}__"
+      requires: ["TOTAL_MATERIAL_COST"]
+  - type: heading
+    level: 1
+    text: Required Tools
+    contents:
+    - type: unnumbered-list
+      item_query: data.tools
+      item_text: "{{ item }}"
+      requires: ["data"]
+
