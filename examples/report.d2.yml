@@ -29,11 +29,11 @@ contents:
         - "{{ row.cost }}"
         - "{{ row.quantity }}"
         - "{{ row.quantity * row.cost }}"
-    - type: data-query
+    - type: jinja-query
       defines: TOTAL_MATERIAL_COST
       expression: 
         sum([item.quantity * item.cost for item in data.items])
-      visibility: global
+      requires: ["data"]
     - type: paragraph
       text: "Total material costs: __{{ TOTAL_MATERIAL_COST }}__"
       requires: ["TOTAL_MATERIAL_COST"]
@@ -41,7 +41,7 @@ contents:
     level: 1
     text: Required Tools
     contents:
-    - type: unnumbered-list
+    - type: unordered-list
       item_query: data.tools
       item_text: "{{ item }}"
       requires: ["data"]
