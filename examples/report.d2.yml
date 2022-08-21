@@ -8,33 +8,88 @@ contents:
     text: Introduction
     contents:
     - type: paragraph
-      text: This report covers activities planning and execution for work-package __{{ data.work_package_id }}__.
+      text: >
+        This report covers activities planning and execution for work-package __{{ data.work_package_id }}__.
+
+
+        Within this work-package the  {{ data.process_name }} process is performed on a number of work areas (defined in Scope of Work). 
+        To perform the process a set of tools and materials are required as well as specialist time.
       requires: ["data"]
   - type: heading
     level: 1
-    text: Required Materials
+    text: Scope of Work
     contents:
-    - type: basic-data-table
-      columns: ["Item", "Cost", "Quantity", "Total"]
-      row_query: data.materials
-      requires: ["data"]
-      cells:
-        - "{{ row.name }}"
-        - "{{ row.cost }}"
-        - "{{ row.quantity }}"
-        - "{{ row.quantity * row.cost }}"
     - type: jinja-query
-      defines: TOTAL_MATERIAL_COST
+      defines: PROCESS_RUN_TIME
+      requires: ["data"]
       expression: >
         {% set buff =  [] %}
         {% for item in data.materials %}
         {% set tmp = buff.append(item.cost * item.quantity) %}
         {% endfor %}
         {% set TOTAL_MATERIAL_COST = buff | sum %}
-      requires: ["data"]
+        {% set PROCESS_RUN_TIME = data.process_steps | map(attribute="cost") | sum %}
+        {% set TOTAL_WORK_TIME = data.work_areas | length * PROCESS_RUN_TIME/60 %}
+        {% set LABOR_COST = TOTAL_WORK_TIME * data.hourly_rate | round %}
     - type: paragraph
-      text: "Total material costs: __{{ TOTAL_MATERIAL_COST }}__"
-      requires: ["TOTAL_MATERIAL_COST"]
+      text: >
+        The work package requires the {{ data.process_name }} process to be performed on a number of work areas. To perform the {{ data.process_name }} process certain tools and materials are required
+        
+        
+        The process {{ data.process_name }} will be applied to the following work areas:
+    - type: unordered-list
+      item_query: data.work_areas
+      item_text: "{{ item }}"
+      requires: ["data"]
+    - type: heading
+      level: 2
+      text: Process Description
+      contents:
+        - type: basic-data-table
+          columns: ["Step", "Description", "Time Cost, [min]"]
+          row_query: data.process_steps
+          requires: ["data"]
+          cells:
+          - "{{ loop.index }}"
+          - "{{ row.activity }}"
+          - "{{ row.cost }}"
+        - type: paragraph
+          requires: ["PROCESS_RUN_TIME"]
+          text: >
+            Expected process time spent per work area : __{{ PROCESS_RUN_TIME / 60 | round }} hour(s)__.
+    - type: heading
+      level: 2
+      text: Required Materials
+      contents:
+      - type: basic-data-table
+        columns: ["Item", "Cost", "Quantity", "Total"]
+        row_query: data.materials
+        requires: ["data"]
+        cells:
+          - "{{ row.name }}"
+          - "{{ row.cost }}"
+          - "{{ row.quantity }}"
+          - "{{ row.quantity * row.cost }}"
+      - type: jinja-query
+        defines: TOTAL_MATERIAL_COST
+        expression: >
+          
+        requires: ["data"]
+      - type: paragraph
+        text: "Total material costs: __€{{ TOTAL_MATERIAL_COST }}__"
+        requires: ["TOTAL_MATERIAL_COST"]
+    - type: heading
+      level: 2
+      text: Costs
+      contents:
+      - type: paragraph
+        requires: ["PROCESS_RUN_TIME"]
+        text: >
+          Given the number of work areas ({{ data.work_areas | length }}) it is estimated that this work package requires __{{ TOTAL_WORK_TIME }}__ hours.
+          Therefore the estimated labor cost is __€{{ LABOR_COST }}__.
+
+
+          Total estimated cost of this work package is __€{{ LABOR_COST + TOTAL_MATERIAL_COST}}__
   - type: heading
     level: 1
     text: Required Tools
@@ -43,4 +98,3 @@ contents:
       item_query: data.tools
       item_text: "{{ item }}"
       requires: ["data"]
-

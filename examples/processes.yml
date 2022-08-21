@@ -1,10 +1,42 @@
 work_package_id: WP1.2 - Introduction of basement grill-locks
+process_name: grill-lock installation
+hourly_rate: 60  # Euro / hour
+work_areas:
+  - storage room light well
+  - sauna light well
+  - stairs light well
+  - server room light well
+
+process_steps:
+  - activity: prepare materials and tools
+    cost: 10  # min
+  - activity: open the light well and clean the area
+    cost: 10  # min
+  - activity: take pictures of the light well before grill-lock installation
+    cost: 2  # min
+  - activity: pre-install the grill-lock to measure the positions for drilling. Tension the inner-side of the lock assembly, use __Level__ to make it normal (90 deg) to the grill and use __Marker__ to mark the holes (left, right - 4 per side, 8 in total)
+    cost: 15  # min
+  - activity: remove the grill and the lock assembly
+    cost: 5  # min
+  - activity: drill the holes (4 per side, 8 in total) and remove drilling debris (if any)
+    cost: 10  # min
+  - activity: mount the wall-side locks (2x, 8 dubel-screw pairs)
+    cost: 5  # min
+  - activity: install the grill and grill-lock
+    cost: 5  # min
+  - activity: clean-up working area, collect and dispose installation debris and packaging material
+    cost: 5  # min
+  - activity: take pictures of the light well and grill-lock after installation
+    cost: 2  # min
+
 materials:
   - name: ABUS GS60
     cost: 57
     quantity: 4
+
 tools:
   - Marker
   - Bohrmaschine
   - Level
   - Hammerschlagbohrer 6mm
+  - Screwdriver
