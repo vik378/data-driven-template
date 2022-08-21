@@ -1,0 +1,10 @@
+work_package_id: WP1.2 - Introduction of basement grill-locks
+materials:
+  - name: ABUS GS60
+    cost: 57
+    quantity: 4
+tools:
+  - Marker
+  - Bohrmaschine
+  - Level
+  - Hammerschlagbohrer 6mm
